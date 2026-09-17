@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reward Claim Center</title>
+  <meta name="description" content="Check your eligibility for an available reward.">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:radial-gradient(circle at 50% 0%,#263b72 0%,#10172d 38%,#070b17 75%);
+      color:#fff;min-height:100vh
+    }
+    .container{width:min(100% - 30px,520px);margin:auto;padding:22px 0 40px}
+    .badge{display:inline-flex;align-items:center;gap:7px;background:#ffffff10;border:1px solid #ffffff24;
+      padding:8px 14px;border-radius:30px;font-size:12px;margin-bottom:18px;color:#dce5ff}
+    .dot{width:8px;height:8px;background:#48e28a;border-radius:50%;box-shadow:0 0 10px #48e28a}
+    .center{text-align:center}
+    h1{font-size:clamp(34px,9vw,48px);line-height:1.02;letter-spacing:-1.5px;margin-bottom:12px}
+    .subtitle{color:#b9c3dc;font-size:15px;line-height:1.55;max-width:430px;margin:auto}
+    .card{margin-top:25px;padding:22px;border-radius:24px;background:linear-gradient(145deg,#ffffff1f,#ffffff0b);
+      border:1px solid #ffffff24;box-shadow:0 25px 70px #00000059;backdrop-filter:blur(15px)}
+    .reward{position:relative;overflow:hidden;border-radius:20px;padding:28px 20px;text-align:center;
+      background:linear-gradient(135deg,#182a5c,#46206d);border:1px solid #ffffff29}
+    .reward:before,.reward:after{content:"";position:absolute;border-radius:50%;background:#ffffff12}
+    .reward:before{width:160px;height:160px;right:-70px;top:-80px}
+    .reward:after{width:130px;height:130px;left:-65px;bottom:-70px}
+    .gift{font-size:54px;margin-bottom:8px;position:relative;z-index:2}
+    .label{color:#bfcaff;font-size:13px;text-transform:uppercase;letter-spacing:2px;position:relative;z-index:2}
+    .amount{font-size:48px;font-weight:900;margin:4px 0;position:relative;z-index:2}
+    .reward-title{font-size:18px;font-weight:700;position:relative;z-index:2}
+    .steps{margin-top:22px}
+    .steps h2{font-size:18px;margin-bottom:13px}
+    .step{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #ffffff14}
+    .step:last-child{border-bottom:0}
+    .number{flex:0 0 30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#fff;
+      color:#10172d;font-weight:800;font-size:13px}
+    .step strong{display:block;font-size:14px;margin-bottom:3px}
+    .step span{color:#9faac5;font-size:12px;line-height:1.4}
+    .cta{width:100%;border:0;margin-top:20px;padding:17px 20px;border-radius:14px;cursor:pointer;color:#08101e;
+      font-size:17px;font-weight:900;background:linear-gradient(135deg,#ffe46b,#ffb52d);
+      box-shadow:0 12px 30px #ffbe323f;transition:.2s}
+    .cta:hover{transform:translateY(-2px);filter:brightness(1.05)}
+    .cta:active{transform:scale(.98)}
+    .secure{text-align:center;color:#8994af;font-size:11px;margin-top:11px}
+    .social{margin-top:18px;display:flex;justify-content:center;gap:7px;flex-wrap:wrap}
+    .social span{background:#ffffff0f;border:1px solid #ffffff14;color:#aeb8d0;border-radius:30px;padding:7px 10px;font-size:11px}
+    .rating{text-align:center;margin-top:25px}
+    .stars{color:#ffd34e;font-size:20px;letter-spacing:2px}
+    .rating p{color:#8e99b2;font-size:11px;margin-top:5px}
+    footer{text-align:center;margin-top:25px;color:#626d86;font-size:10px;line-height:1.5}
+    footer a{color:#8793ae;text-decoration:none;margin:0 5px}
+    .overlay{position:fixed;inset:0;background:#000000ba;display:none;place-items:center;padding:20px;z-index:999}
+    .popup{width:min(100%,390px);background:#11182c;border:1px solid #ffffff24;border-radius:22px;padding:25px;
+      text-align:center;box-shadow:0 30px 100px #0000008c;animation:pop .22s ease}
+    @keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+    .popup-icon{font-size:42px;margin-bottom:10px}
+    .popup h3{font-size:21px;margin-bottom:8px}
+    .popup p{color:#aab4cc;font-size:13px;line-height:1.5;margin-bottom:18px}
+    .continue{width:100%;border:0;padding:13px;border-radius:12px;background:#27314c;color:#fff;cursor:pointer;font-weight:700}
+    @media(max-width:400px){.container{width:min(100% - 20px,520px)}.card{padding:15px}}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="center">
+      <div class="badge"><span class="dot"></span> Reward page is available</div>
+    </div>
+
+    <h1 class="center">Claim Your Reward</h1>
+    <p class="subtitle center">
+      Complete the required steps through our partner offer and check whether
+      you qualify for the available reward.
+    </p>
+
+    <section class="card">
+      <div class="reward">
+        <div class="gift">🎁</div>
+        <div class="label">Featured Reward</div>
+        <div class="amount">₹500</div>
+        <div class="reward-title">Gift Card Reward</div>
+      </div>
+
+      <div class="steps">
+        <h2>How it works</h2>
+
+        <div class="step">
+          <div class="number">1</div>
+          <div><strong>Tap the claim button</strong><span>Continue to the partner offer.</span></div>
+        </div>
+
+        <div class="step">
+          <div class="number">2</div>
+          <div><strong>Complete an eligible offer</strong><span>Follow the instructions shown on the offer page.</span></div>
+        </div>
+
+        <div class="step">
+          <div class="number">3</div>
+          <div><strong>Check your eligibility</strong><span>Reward availability depends on the partner's terms.</span></div>
+        </div>
+      </div>
+
+      <button class="cta" id="claimBtn">CLAIM REWARD →</button>
+      <div class="secure">🔒 You will be redirected to our offer partner</div>
+
+      <div class="social">
+        <span>✓ Simple process</span>
+        <span>✓ Mobile friendly</span>
+        <span>✓ Partner offer</span>
+      </div>
+    </section>
+
+    <div class="rating">
+      <div class="stars">★★★★★</div>
+      <p>Reward page experience</p>
+    </div>
+
+    <footer>
+      This page is not affiliated with or endorsed by any game, brand,
+      or gift-card provider unless explicitly stated.
+      <br><br>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </footer>
+  </main>
+
+  <div class="overlay" id="overlay">
+    <div class="popup">
+      <div class="popup-icon">🎁</div>
+      <h3>Continue to the offer</h3>
+      <p>
+        You will now be redirected to the partner page where the available
+        offer and eligibility requirements are displayed.
+      </p>
+      <button class="continue" id="continueBtn">Continue →</button>
+    </div>
+  </div>
+
+  <script>
+    // =====================================================
+    // CPAlead / tracking URL:
+    // Paste your actual tracking URL between the quotes.
+    // =====================================================
+    const OFFER_URL = "PASTE_YOUR_CPALEAD_TRACKING_URL_HERE";
+
+    const claimBtn = document.getElementById("claimBtn");
+    const continueBtn = document.getElementById("continueBtn");
+    const overlay = document.getElementById("overlay");
+
+    claimBtn.addEventListener("click", () => {
+      overlay.style.display = "grid";
+    });
+
+    continueBtn.addEventListener("click", () => {
+      if (!OFFER_URL || OFFER_URL === "PASTE_YOUR_CPALEAD_TRACKING_URL_HERE") {
+        alert("Add your CPAlead tracking URL inside index.html first.");
+        return;
+      }
+      window.location.href = OFFER_URL;
+    });
+
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) overlay.style.display = "none";
+    });
+  </script>
+</body>
+</html>
